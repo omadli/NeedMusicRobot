@@ -31,7 +31,7 @@ load_dotenv("config.env")
 
 # Log
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.INFO,
     format="%(asctime)s - %(message)s",
     handlers=[logging.FileHandler("bot.log"), logging.StreamHandler()],
 )
@@ -63,7 +63,8 @@ class Mbot(Client):
     def __init__(self):
         name = self.__class__.__name__.lower()
         super().__init__(
-            ":memory:",
+            "bot",
+            in_memory=True,
             plugins=dict(root=f"{name}/plugins"),
             workdir="./cache/",
             api_id=API_ID,
@@ -77,7 +78,8 @@ class Mbot(Client):
         await super().start()
         BOT_INFO = await self.get_me()
         if not path.exists("/tmp/thumbnails/"):
-            mkdir("/tmp/thumbnails/")
+            mkdir("/tmp")
+            mkdir("/tmp/thumbnails")
         for chat in AUTH_CHATS:
             await self.send_photo(
                 chat,

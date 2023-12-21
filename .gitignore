@@ -1,3 +1,7 @@
 config.env
 bot.log
 __pycache__
+venv/
+cache
+tmp
+.cache
