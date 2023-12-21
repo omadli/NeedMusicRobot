@@ -35,7 +35,7 @@ logging.basicConfig(
     format="%(asctime)s - %(message)s",
     handlers=[logging.FileHandler("bot.log"), logging.StreamHandler()],
 )
-logging.getLogger("pyrogram").setLevel(logging.WARNING)
+logging.getLogger("pyrogram").setLevel(logging.INFO)
 LOGGER = logging.getLogger(__name__)
 
 # Mandatory Variable
