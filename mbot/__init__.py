@@ -77,9 +77,9 @@ class Mbot(Client):
         global BOT_INFO
         await super().start()
         BOT_INFO = await self.get_me()
-        if not path.exists("/tmp/thumbnails/"):
-            mkdir("/tmp")
-            mkdir("/tmp/thumbnails")
+        if not path.exists("tmp/thumbnails/"):
+            mkdir("tmp")
+            mkdir("tmp/thumbnails")
         for chat in AUTH_CHATS:
             await self.send_photo(
                 chat,
